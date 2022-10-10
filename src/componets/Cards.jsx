@@ -1,18 +1,28 @@
 import Card from "./Card";
-const Cards = ({cards,deleteCard})=>{
+import { useContext } from 'react'
+import { CardContext } from "../context/CardContext";
+
+const Cards = ()=>{
+    const {cardsColection, setCardsColection} = useContext(CardContext)
+    
+    const deleteCard = id =>{
+        const cardsActualizadas = cardsColection.filter(card=> card.id !== id);
+        setCardsColection(cardsActualizadas)
+        console.log(cardsActualizadas);
+      }
+
     return (
+
         <div>
         <h1>Hola desde Cards</h1>
-        {cards.map(card=>(
+        {cardsColection.map(card=>(
            <Card 
             key={card.id}
             id={card.id}
             card={card}
             deleteCard={deleteCard}/> 
         ))
-
         }
-        
         </div>
         
     )
