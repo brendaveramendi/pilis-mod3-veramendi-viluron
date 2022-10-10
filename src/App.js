@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import { Routes, Route, Link} from 'react-router-dom';
 import './App.css';
+import Home from './routes/Home/Home';
+import Formulario from './routes/Formulario/Formulario';
+import Inicio from './routes/Inicio/Inicio';
+//import {CardContext} from './context/CardContext'
+
 
 function App() {
   return (
+    <>
+     <header>
+        <h1>App-Clima</h1>
+      <nav>
+        <ul>
+          <li><Link to='/'>Inicio</Link></li>
+          <li><Link to='/home'>Home</Link></li>
+          <li><Link to='/formulario'>Formulario</Link></li>
+        </ul>
+      </nav>
+    </header>
+   
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Routes>
+        <Route path='/' element={<Inicio />} />
+        <Route path='/home' element={<Home />} />  
+        <Route path='/formulario' element={<Formulario />} /> 
+      </Routes>
+    </div>   
+    </>
   );
 }
 
