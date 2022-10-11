@@ -1,15 +1,16 @@
-import { useEffect, useState } from 'react';
-import { Routes, Route, Link} from 'react-router-dom';
 import './App.css';
+import { useEffect, useContext } from 'react';
+import { Routes, Route, Link} from 'react-router-dom';
 import { getCards } from './services';
 import Home from './routes/Home/Home';
 import Formulario from './routes/Formulario/Formulario';
 import Inicio from './routes/Inicio/Inicio';
-import {CardContext} from './context/CardContext'
+import {CardContext} from './context/CardContext';
+
 
 
 function App() {
-  const [cardsColection, setCardsColection] = useState([]);
+  const {setCardsColection } = useContext(CardContext)
   useEffect(() => {
     getCards()
     .then(data=>setCardsColection(data))
@@ -17,7 +18,6 @@ function App() {
   }, [])
 
     return (
-    <CardContext.Provider value={{cardsColection, setCardsColection}}>
     <>
      <header>
         <h1>App-Clima</h1>
@@ -37,7 +37,7 @@ function App() {
       </Routes>
     </div>   
     </>
-    </CardContext.Provider>
+   
   );
 }
 
