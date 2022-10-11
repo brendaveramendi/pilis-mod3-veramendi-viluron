@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { CardContext } from '../../context/CardContext';
 import { postWeather } from '../../services';
 const Formulario = ()=> {
-  const {register, handleSubmit, formState:{errors}} = useForm();
+  const {register, handleSubmit,reset, formState:{errors}} = useForm();
   const {cardsColection, setCardsColection} = useContext(CardContext);
 
   const customSubmit = (data) =>{
@@ -20,7 +20,7 @@ const Formulario = ()=> {
    })
    .catch(error=>console.log(error))
    
-  
+  reset();
   }
   return (
     <>
@@ -40,7 +40,7 @@ const Formulario = ()=> {
             <input type="url" alt='image' placeholder='Ingrese Url'{...register('image',{required:true})}/>
             {errors.image?.type === 'required' && <small>El campo no puede estar vacio</small>}
             
-            <button type='submit'>Send</button>
+            <button type='submit'> Cargar Tarjeta</button>
           </div>
 
         </form>
