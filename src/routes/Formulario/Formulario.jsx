@@ -4,7 +4,7 @@ import { getWeather } from '../../services';
 import { useContext } from 'react';
 import { CardContext } from '../../context/CardContext';
 import { postWeather } from '../../services';
-import './Formulario.css'
+import './Formulario.css';
 const Formulario = ()=> {
   const {register, handleSubmit, formState:{errors}, reset} = useForm();
   const {cardsColection, setCardsColection} = useContext(CardContext);
