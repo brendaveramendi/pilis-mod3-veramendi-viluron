@@ -24,9 +24,9 @@ const Formulario = ()=> {
   
   }
   return (
-    <div className='form-container'>
+    <div className='form-card-container'>
        
-        <form className='form'  onSubmit={ handleSubmit(customSubmit)}>
+        <form className='form-card'  onSubmit={ handleSubmit(customSubmit)}>
             
             <span className='title'>Ingrese Datos</span>  
            
