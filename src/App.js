@@ -1,44 +1,13 @@
-import './App.css';
-import { useEffect, useContext } from 'react';
-import { Routes, Route, Link} from 'react-router-dom';
-import { getCards } from './services';
-import Home from './routes/Home/Home';
-import Formulario from './routes/Formulario/Formulario';
-import Inicio from './routes/Inicio/Inicio';
-import {CardContext} from './context/CardContext';
+import { createContext, useState } from "react";
 
+export const UserContext = createContext({
+  currentUser: {},
+  setCurrentUser: () => {}
+})
 
+export const UserProvider = ({ children }) => {
+  const [currentUser, setCurrentUser] = useState(null);
+  const value = { currentUser, setCurrentUser };
 
-function App() {
-  const {setCardsColection } = useContext(CardContext)
-  useEffect(() => {
-    getCards()
-    .then(data=>setCardsColection(data))
-    .catch(err=> console.log(err))
-  }, [])
-
-    return (
-    <>
-     <header>
-        <h1>App-Clima</h1>
-      <nav>
-        <ul>
-          <li><Link to='/'>Inicio</Link></li>
-          <li><Link to='/home'>Home</Link></li>
-          <li><Link to='/formulario'>Formulario</Link></li>
-        </ul>
-      </nav>
-    </header> 
-    <div className="App">
-      <Routes>
-        <Route path='/' element={<Inicio />} />
-        <Route path='/home' element={<Home />} />  
-        <Route path='/formulario' element={<Formulario />} /> 
-      </Routes>
-    </div>   
-    </>
-   
-  );
+  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 }
-
-export default App;
