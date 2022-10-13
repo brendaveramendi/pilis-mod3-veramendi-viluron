@@ -1,6 +1,7 @@
 import Card from "./Card";
 import { useContext } from 'react'
 import { CardContext } from "../context/CardContext";
+import {deleteWeather} from "../services"
 import './Cards.css';
 
 const Cards = ()=>{
@@ -9,7 +10,8 @@ const Cards = ()=>{
     const deleteCard = id =>{
         const cardsActualizadas = cardsColection.filter(card=> card.id !== id);
         setCardsColection(cardsActualizadas)
-        console.log(cardsActualizadas);
+        deleteWeather(id)
+        
       }
 
     return (

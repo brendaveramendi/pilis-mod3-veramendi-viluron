@@ -31,3 +31,15 @@ export const getCards = async () => {
       throw new Error('could not fetch post');
     }
   };
+
+  export const deleteWeather = (id) => {
+    try {
+       fetch(`${SERVER_DOMAIN}/cards/${id}`,{
+        method: 'DELETE',
+        headers:{"Content-type": "application/json; charset=UTF-8"} 
+       });
+     
+    } catch {
+      throw new Error('could not fetch deLETE');
+    }
+  };

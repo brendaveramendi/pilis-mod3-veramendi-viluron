@@ -1,10 +1,9 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { getWeather } from '../../services';
+import { getWeather, postWeather   } from '../../services';
 import { useContext } from 'react';
 import { CardContext } from '../../context/CardContext';
-import { postWeather } from '../../services';
-import './Formulario.css';
+import './Formulario.css'
 const Formulario = ()=> {
   const {register, handleSubmit, formState:{errors}, reset} = useForm();
   const {cardsColection, setCardsColection} = useContext(CardContext);
@@ -29,30 +28,30 @@ const Formulario = ()=> {
        
         <form className='form'  onSubmit={ handleSubmit(customSubmit)}>
             
-            <span className='form-title'>Ingrese Datos</span>  
+            <span className='title'>Ingrese Datos</span>  
            
             <input type="text"
              placeholder='Ingrese Ciudad' 
-             className='form-input'
+             className='input'
              {...register('ciudad',{required:true})}/>
             {errors.ciudad?.type === 'required' && <small>El campo no puede estar vacio</small>}
             <input type="text"
              placeholder='Ingrese Latitud'
-             className='form-input'
+             className='input'
              {...register('latitud',{required:true})}/>
             {errors.latitud?.type === 'required' && <small>El campo no puede estar vacio</small>}
             <input type="text"
              placeholder='Ingrese Longitud' 
-             className='form-input'
+             className='input'
              {...register('longitud',{required:true})}/>
             {errors.longitud?.type === 'required' && <small>El campo no puede estar vacio</small>}
             <input type="url"
              alt='image'
-             className='form-input'
+             className='input'
             placeholder='Url Image'{...register('image',{required:true})}/>
             {errors.image?.type === 'required' && <small>El campo no puede estar vacio</small>}
             
-          <button className='form-submit' type='submit'>Cargar Tarjeta</button>
+          <button className='submit' type='submit'>Cargar Tarjeta</button>
 
         </form>
         
