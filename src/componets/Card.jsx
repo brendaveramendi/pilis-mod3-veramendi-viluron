@@ -12,7 +12,7 @@ const Card = ({id,card,deleteCard})=>{
                 <div className='face front'>  
                                   
                      <img className='image-style' src={image} alt="" />
-                      <p>Ciudad:{city}</p>   
+                      <p>{city}</p>   
                 </div>
                     <div className="face back">
                      <p>Latitud:{latitude}</p>

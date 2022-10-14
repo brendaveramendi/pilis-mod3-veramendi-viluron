@@ -1,15 +1,17 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { getWeather, postWeather   } from '../../services';
+import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { CardContext } from '../../context/CardContext';
 import './Formulario.css'
 const Formulario = ()=> {
-  const {register, handleSubmit, formState:{errors}, reset} = useForm();
+  const {register, handleSubmit, formState:{errors}} = useForm();
   const {cardsColection, setCardsColection} = useContext(CardContext);
+  const navigate = useNavigate()
 
   const customSubmit = (data) =>{
-    reset();
+    
     const {ciudad, latitud, longitud, image} = data;
     getWeather(latitud, longitud)
    .then(weather=>{
@@ -18,10 +20,11 @@ const Formulario = ()=> {
     const newCard = {latitude, longitude, city:ciudad, image, temperature, windspeed, id: cardsColection.length+1}
       setCardsColection([...cardsColection, newCard])
       postWeather(newCard);
+      
    })
    .catch(error=>console.log(error))
    
-  
+   navigate('/')
   }
   return (
     <div className='form-card-container'>
