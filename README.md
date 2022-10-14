@@ -1,6 +1,6 @@
 # Aplicacion con datos climaticos :thermometer: :sunny:
 
-#En el desarrollo de esta aplicacion se uso  la libreria React, para el desarrollo front-end  :computer:
+* En el desarrollo de esta aplicacion se uso  la libreria React, para el desarrollo front-end  :computer:
 
 ## Apis Usadas
 
@@ -14,9 +14,9 @@
 * Para registar una nueva tarjeta y consultar datos de las tajetas es necesario el inicio de sesion.
 
 ## Desarrolladores
-Veramendi Brenda Noelia 	:woman_technologist:
+* Veramendi Brenda Noelia 	:woman_technologist:
 
-Viluron Ramon Nolberto 	:man_technologist:
+* Viluron Ramon Nolberto 	:man_technologist:
 
 
 
