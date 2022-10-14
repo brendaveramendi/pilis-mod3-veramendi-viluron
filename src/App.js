@@ -7,7 +7,7 @@ import Formulario from './routes/Formulario/Formulario';
 import Inicio from './routes/Inicio/Inicio';
 import {CardContext} from './context/CardContext';
 import LoginRef from './routes/Login/LoginRef';
-
+import Navigation from './routes/Navigation/Navigation';
 
 
 function App() {
@@ -20,23 +20,25 @@ function App() {
 
     return (
     <>
-     <header>
-        <h1>App-Clima</h1>
+     {/* <header>
+        <h1 className='h1'>App-Clima</h1>
       <nav className='modal-body nav'>
         <ul>
-        <li><Link to='/login'>login</Link></li>
           <li><Link to='/'>Inicio</Link></li>
           <li><Link to='/home'>Home</Link></li>
-          <li><Link to='/formulario'>Formulario</Link></li>
+          <li><Link to='/login'>login</Link></li>
+          <li><Link to='/formulario'>Agregar  Formulario</Link></li>
         </ul>
       </nav>
-    </header> 
+    </header>  */}
     <div className="App">
       <Routes>
-        <Route path='/' element={<Inicio />} />
-        <Route path='/home' element={<Home />} />  
-        <Route path='login' element={<LoginRef/>}/>
-        <Route path='/formulario' element={<Formulario />} /> 
+        <Route path='/' element={<Navigation />} >
+          <Route index element={<Inicio/>}/>
+          <Route path='/home' element={<Home />} /> 
+          <Route path='/login' element={<LoginRef/>}/>
+          <Route path='/formulario' element={<Formulario />} />
+        </Route> 
       </Routes>
     </div>   
     </>

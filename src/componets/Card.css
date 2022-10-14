@@ -32,7 +32,7 @@
 }
 .card-image{
 border-right: 1px solid #ddd;
-
+font-weight: bold;
 }
 .card-description{
 background: #fbfbfb;
@@ -42,5 +42,9 @@ vertical-align: middle;
 .card-image, .card-description{
     padding: 20px;
     text-align: center;
+}
+
+.eliminar {
+    margin-left: 200px;
 }
 

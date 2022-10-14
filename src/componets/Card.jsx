@@ -9,18 +9,20 @@ const Card = ({id,card,deleteCard})=>{
                 <div key={id} className="card-container">
                     <div className="card-image">
                     <img className='image-style' src={image} alt="" />
-                    <p>Ciudad:{city}</p>   
+                    <p>Ciudad: {city}</p>   
                     </div>
+                    
                     <div className="card-description">
-                     <p>Latitud:{latitude}</p>
-                     <p>Longitud:{longitude}</p>
-                     <p> <WiThermometer /> Temperatura:{temperature}</p> 
-                     <p><WiStrongWind /> Viento:{windspeed} </p>  
-                     <div> 
+                    <div className='eliminar'> 
                       <FaRegWindowClose  
                       onClick={()=>deleteCard(id)}
                       />
                       </div> 
+                     <br /><p>Latitud:{latitude}</p>
+                     <br /><p>Longitud:{longitude}</p>
+                     <br /><p> <WiThermometer /> Temperatura:{temperature}</p> 
+                     <br /><p><WiStrongWind /> Viento:{windspeed} </p>  
+                     
                     </div>
                 </div>
                 

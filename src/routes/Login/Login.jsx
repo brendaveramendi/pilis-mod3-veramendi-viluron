@@ -13,7 +13,7 @@ const Login = () => {
   const onSubmit = (data) => {
     localStorage.setItem('currentUser', JSON.stringify(data))
     setCurrentUser(data)
-    navigate('/')
+    navigate('/Home')
   }
 
   return (

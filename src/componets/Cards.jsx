@@ -14,7 +14,7 @@ const Cards = ()=>{
     return (
 
         <div>
-        <h1>Hola desde Cards</h1>
+        <h2>Datos del Clima</h2><br />
         {cardsColection.map(card=>(
            <Card 
             key={card.id}
